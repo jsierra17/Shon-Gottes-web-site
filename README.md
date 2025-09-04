@@ -106,9 +106,57 @@ Si prefieres ejecutar los comandos manualmente:
    - Termina la sesión del usuario
    - Redirecciona al registro
 
-## Base de Datos
+## Administración de Base de Datos
 
-La aplicación utiliza SQLite3 como sistema de gestión de base de datos, lo cual facilita la portabilidad y no requiere configuración adicional de servidores. La estructura de la base de datos incluye:
+La aplicación incluye herramientas avanzadas para la gestión de la base de datos SQLite3:
+
+### Panel de Administración
+
+- Acceso: `http://localhost:5000/admin/usuarios`
+- Muestra:
+  - Lista completa de usuarios registrados
+  - Estructura detallada de la base de datos
+  - Información de campos y tipos de datos
+
+### Herramienta de Migración (`db_migration.py`)
+
+Script potente para administrar la base de datos que incluye:
+
+1. **Gestión de Seguridad:**
+   - Creación automática de copias de seguridad
+   - Backups con marca de tiempo
+   - Manejo seguro de errores
+
+2. **Administración de Tablas:**
+   ```python
+   migration = DatabaseMigration()
+   
+   # Crear nueva tabla
+   campos = [
+       "id INTEGER PRIMARY KEY AUTOINCREMENT",
+       "nombre TEXT NOT NULL"
+   ]
+   migration.crear_tabla('nueva_tabla', campos)
+   
+   # Renombrar tabla
+   migration.renombrar_tabla('tabla_vieja', 'tabla_nueva')
+   ```
+
+3. **Gestión de Campos:**
+   ```python
+   # Agregar nuevo campo
+   migration.agregar_campo('usuarios', 'telefono', 'TEXT')
+   
+   # Ver estructura de tabla
+   migration.mostrar_estructura('usuarios')
+   ```
+
+4. **Funciones de Diagnóstico:**
+   - Verificación de existencia de tablas
+   - Visualización de estructura de tablas
+   - Registro de cambios realizados
+
+### Estructura Actual de la Base de Datos
 
 ```sql
 CREATE TABLE usuarios (
@@ -118,6 +166,17 @@ CREATE TABLE usuarios (
     contraseña TEXT NOT NULL
 )
 ```
+
+### Cómo Usar las Herramientas de Administración
+
+1. **Para ver usuarios y estructura:**
+   - Inicia sesión en la aplicación
+   - Visita `/admin/usuarios`
+
+2. **Para modificar la estructura:**
+   - Edita `db_migration.py`
+   - Descomenta y modifica los ejemplos según necesites
+   - Ejecuta: `python db_migration.py`
 
 ## Actualización en GitHub
 
@@ -143,11 +202,31 @@ Para actualizar el repositorio en GitHub:
    git push origin main
    ```
 
+## Últimas Actualizaciones
+
+### Nuevas Características
+- Panel de administración para gestión de usuarios
+- Sistema de migración de base de datos
+- Copias de seguridad automáticas
+- Interfaz mejorada con Bootstrap
+- Scripts de inicio automatizados (run.bat/run.sh)
+
+### Mejoras Técnicas
+- Gestión mejorada de sesiones
+- Manejo de errores más robusto
+- Documentación expandida
+- Estructura de proyecto organizada
+
 ## Próximas Mejoras Sugeridas
 
 - Implementar hash de contraseñas para mayor seguridad
 - Agregar recuperación de contraseña
 - Mejorar la validación de formularios
+- Implementar sistema de roles de usuario
+- Agregar más opciones al panel de administración
+- Implementar registro de actividad (logs)
+- Añadir validación de correo electrónico
+- Mejorar la interfaz de usuario con más características interactivas
 - Añadir más funcionalidades en el área privada
 - Implementar un diseño responsive más elaborado
 
