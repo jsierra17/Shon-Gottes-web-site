@@ -12,19 +12,27 @@
 <!--Agregue bg-ime: webkit que me permitio agregar la imagen-->    
 
 <body style="background-image: -webkit-image-set('static/IMG/182428240217.jpg');"> 
-
+    <div class="container mt-4 text-align: center;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <ul>
+                <!--Agregue un div para poder centrar este boton que luego me llevara al registro de usuario-->
+    <li style="text-align: center;">    
+    
+    </li>
+            <li style="display: inline; margin-right: 15px;"><a href="/home" class="btn btn-outline-light">Inicio</a></li>
+            <li style="display: inline; margin-right: 15px;"><a href="/usuarios" class="btn btn-outline-light">Usuarios</a></li> 
+            <li style="display: inline; margin-right: 15px;"><a href="/about" class="btn btn-outline-light">Acerca de</a></li>
+            <li style="display: inline; margin-right: 15px;"><a href="/contact" class="btn btn-outline-light">Contacto</a></li>
+            <a href="/logout"><button type="button" class="btn btn-primary">Cerrar secion</button></a>
+        </ul>
+        
+    </nav>
+    </div>
 <!--Lo que hace los corchete {} es mensionar al usuario que ha iniciado secion-->
     <h1 style="text-align: center; color: whitesmoke;background: center;">¡Bienvenido, {{ usuario }}!</h1> 
 
     <p style="text-align: center; color: whitesmoke;">"¡Bienvenido a nuestra plataforma! Nos alegra tenerte aquí. 
         Explora, descubre y disfruta de todo lo que tenemos para ofrecerte. 
         ¡Esperamos que tu experiencia sea increíble!" 😊</p>
-
-    <!--Agregue un div para poder centrar este boton que luego me llevara al registro de usuario-->
-    <div style="text-align: center;">    
-    <a href="/logout"><button type="button" class="btn btn-primary">Cerrar secion</button></a>
-    </div>
-
-
 </body>
 </html>

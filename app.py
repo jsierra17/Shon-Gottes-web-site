@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, render_template, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 app.secret_key = "clave_secreta"  # Necesario para manejar sesiones
@@ -20,6 +21,11 @@ def crear_bd():
     conexion.close()
 
 crear_bd()
+
+# Ruta para la página principal
+@app.route('/')
+def index():
+    return redirect('/login')  # Redirigir a la página de login
 
 # Ruta para registro (GET para mostrar, POST para procesar)
 @app.route('/registro', methods=['GET', 'POST'])
@@ -75,5 +81,34 @@ def logout():
     session.pop('usuario', None)  # Elimina el usuario de la sesión
     return redirect('/registro')  # Redirige al login
 
+# Ruta para ver usuarios registrados (solo para administración)
+@app.route('/admin/usuarios')
+def ver_usuarios():
+    if 'usuario' not in session:  # Si no hay sesión iniciada, redirige al login
+        return redirect('/login')
+        
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+    
+    # Obtener información de la estructura de la tabla
+    cursor.execute("PRAGMA table_info(usuarios)")
+    estructura = cursor.fetchall()
+    
+    # Obtener todos los usuarios
+    cursor.execute("SELECT * FROM usuarios")
+    usuarios = cursor.fetchall()
+    
+    # Obtener nombres de columnas
+    nombres_columnas = [columna[1] for columna in estructura]
+    
+    conexion.close()
+    
+    return render_template('usuarios.html', 
+                         usuarios=usuarios, 
+                         estructura=estructura,
+                         nombres_columnas=nombres_columnas)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Configuración para desarrollo local y producción
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
