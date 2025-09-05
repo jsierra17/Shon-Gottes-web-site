@@ -25,7 +25,7 @@ crear_bd()
 # Ruta para la página principal
 @app.route('/')
 def index():
-    return redirect('/login')  # Redirigir a la página de login
+    return render_template('index.html')
 
 # Ruta para registro (GET para mostrar, POST para procesar)
 @app.route('/registro', methods=['GET', 'POST'])
@@ -76,10 +76,10 @@ def home():
         return redirect('/login')  # Si no ha iniciado sesión, lo manda al login
 
 # Ruta para cerrar sesión
-@app.route('/logout')
+@app.route('/index')
 def logout():
     session.pop('usuario', None)  # Elimina el usuario de la sesión
-    return redirect('/registro')  # Redirige al login
+    return redirect('/')  # Redirige a la página principal (index)
 
 # Ruta para ver usuarios registrados (solo para administración)
 @app.route('/admin/usuarios')
