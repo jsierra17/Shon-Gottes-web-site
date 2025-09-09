@@ -1,61 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" type="image/png" sizes="128x128" href="static/IMG/android-chrome-192x192.png">
-    <style>
-        body {
-            background-image: url("static/IMG/3607424.jpg");
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .login-container {
-            background: rgba(207, 200, 200, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <!-- Bootstrap para estilos y componentes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* 🎨 Paleta de colores personalizada */
+    :root{
+      --brand: #2ecc71;  /* Verde principal (botones, títulos) */
+      --brand-dark: #27ae60; /* Verde oscuro (hover de botones) */
+      --gray-bg: #f1f1f1; /* Gris bajo (fondo principal del login) */
+    }
+
+    /* 🖼️ Configuración del cuerpo de la página */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+      /* Fondo degradado animado en tonos grises y verdes */
+      background: linear-gradient(270deg, var(--gray-bg), #dbdbdbff, #dfdfdfff);
+      background-size: 600% 600%;
+      animation: fondoAnimado 10s ease infinite;
+    }
+
+    /* 🌈 Animación del fondo (movimiento horizontal del degradado) */
+    @keyframes fondoAnimado {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 🔴 Estilo de burbujas flotantes caricaturescas */
+    .burbuja {
+      position: absolute;
+      bottom: -150px;
+      background: rgba(20, 214, 3, 1); /* Verde brillante */
+      border-radius: 50%;
+      animation: subir 3s infinite ease-in;
+    }
+    /* Diferentes tamaños, posiciones y velocidades para las burbujas */
+    .burbuja:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 18s; color: #ee1616ff; }
+    .burbuja:nth-child(2) { width: 120px; height: 120px; left: 25%; animation-duration: 22s; }
+    .burbuja:nth-child(3) { width: 60px; height: 60px; left: 40%; animation-duration: 15s; }
+    .burbuja:nth-child(4) { width: 100px; height: 100px; left: 60%; animation-duration: 20s; }
+    .burbuja:nth-child(5) { width: 90px; height: 90px; left: 80%; animation-duration: 25s; color: #ee1616ff;}
+    .burbuja:nth-child(6) { width: 70px; height: 70px; left: 90%; animation-duration: 17s; }
+    .burbuja:nth-child(7) { width: 50px; height: 50px; left: 50%; animation-duration: 9s; }
+    .burbuja:nth-child(8) { width: 110px; height: 110px; left: 30%; animation-duration: 21s; color: #ee1616ff;}
+    .burbuja:nth-child(9) { width: 130px; height: 130px; left: 70%; animation-duration: 23s; }
+    .burbuja:nth-child(10) { width: 40px; height: 40px; left: 20%; animation-duration: 16s; }
+    .burbuja:nth-child(11) { width: 75px; height: 75px; left: 85%; animation-duration: 14s; }
+    .burbuja:nth-child(12) { width: 95px; height: 95px; left: 15%; animation-duration: 28s; color: #ee1616ff; }
+    .burbuja:nth-child(13) { width: 55px; height: 55px; left: 35%; animation-duration: 30s; }
+    .burbuja:nth-child(14) { width: 85px; height: 85px; left: 5%; animation-duration: 39s; }
+    .burbuja:nth-child(15) { width: 130px; height: 130px; left: 70%; animation-duration: 43s; }
+    .burbuja:nth-child(16) { width: 40px; height: 40px; left: 20%; animation-duration: 46s; }
+
+
+    /* ⬆️ Animación de las burbujas (suben y se desvanecen) */
+    @keyframes subir {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+    }
+
+    /* 📦 Caja del formulario de login */
+    .login-container {
+      position: relative;
+      z-index: 10;
+      background: rgba(255,255,255,0.85); /* Blanco translúcido */
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(8px); /* Efecto de vidrio */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra suave */
+      animation: fadeIn 1s ease;
+    }
+
+    /* 🟢 Botón principal personalizado */
+    .btn-brand {
+      background: var(--brand); /* Verde */
+      border-color: var(--brand);
+      color:#fff;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .btn-brand:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+
+    /* 🎬 Animación de aparición de la caja */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
-    
-    <!-- Mensaje de error si no se encuentran datos correctos -->
-    {% if mensaje_error %}
-        <script>
-            alert("{{ mensaje_error }}");
-        </script>
-    {% endif %}
 
-    <div class="login-container">
-    <h2 class="text-success fw-bold">Iniciar Sesión</h2>
+  <!-- 🔴 Burbujas flotantes decorativas -->
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+
+
+  <!-- 📦 Contenedor del login -->
+  <div class="login-container">
+    <h2 class="fw-bold mb-4 text-brand">Iniciar Sesión</h2>
     <form action="/login" method="POST">
-        <div class="mb-3 text-start">
-            <label for="correo" class="form-label">Correo:</label>
-            <input type="email" id="correo" name="correo" class="form-control" required>
-        </div>
-
-        <div class="mb-3 text-start">
-            <label for="contraseña" class="form-label">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" class="form-control" required>
-        </div>
-
-        <!-- Botón principal en verde -->
-        <button type="submit" class="btn btn-success w-100 py-2">Ingresar</button> 
-
-        <!-- Texto y botones secundarios -->
-        <h5 class="mt-3 text-dark">¿No tienes cuenta?</h5>
-        <a href="{{ url_for('registro') }}" class="btn btn-outline-success w-100 py-2">Registrarse</a>
-        <a href="{{ url_for('index') }}" class="btn btn-secondary w-100 mt-2 py-2">Volver a Inicio</a>
+      <!-- Campo de correo -->
+      <div class="mb-3 text-start">
+        <label for="correo" class="form-label">Correo:</label>
+        <input type="email" id="correo" name="correo" class="form-control" required>
+      </div>
+      <!-- Campo de contraseña -->
+      <div class="mb-3 text-start">
+        <label for="contraseña" class="form-label">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+      </div>
+      <!-- Botón de ingresar -->
+      <button type="submit" class="btn btn-brand w-100 py-2">Ingresar</button> 
+      <!-- Enlaces secundarios -->
+      <h6 class="mt-3 text-muted">¿No tienes cuenta?</h6>
+      <a href="{{ url_for('registro') }}" class="btn btn-outline-success w-100 py-2">Registrarse</a>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary w-100 mt-2 py-2">Volver a Inicio</a>
     </form>
-</div>
+  </div>
+</body>
+</html>

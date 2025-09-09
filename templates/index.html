@@ -22,9 +22,11 @@
     .btn-brand:hover{ background: var(--brand-dark); border-color: var(--brand-dark); color:#fff; }
     .text-brand{ color: var(--brand); }
     .bg-brand-soft{ background: rgba(46, 204, 113, 0.1); }
+    
     .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+
     .hero{
-      background: linear-gradient(135deg, rgba(46, 204, 113,0.15), rgba(255,255,255,0.9));
+      background: linear-gradient(135deg, rgba(224, 224, 224, 0.9), rgba(224, 224, 224, 0.9));
     }
     .link-brand{
       color: var(--brand); text-decoration: none;
@@ -39,7 +41,7 @@
     <div class="container">
       <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
         <i class="bi bi-code-slash fs-4 text-brand me-2"></i>
-        Shon Gottes<span class="text-brand ms-1"> | Portfolio</span>
+        Jose Sierra<span class="text-brand ms-1"> | Portfolio</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
@@ -48,98 +50,266 @@
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
           <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-          <li class="nav-item ms-lg-3">
-            <a class="btn btn-brand btn-sm px-3" href="#proyectos">Ver mis proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-dark btn-sm px-3" href="/login">Iniciar sesión</a>
+          <li class="nav-item ms-lg-3"><a class="btn btn-brand btn-sm px-3" href="/login">Iniciar sesión</a>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header id="inicio" class="hero text-center text-lg-start">
-    <div class="container py-5">
-      <div class="row align-items-center g-4 py-4">
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold mb-3">
-            ¡Hola! Soy <span class="text-brand">Shon Gottes</span>
-          </h1>
-          <p class="lead text-secondary mb-4">
-            Bienvenido a mi espacio personal. Aquí encontrarás mis proyectos, ideas y experimentos
-            en desarrollo web, programación y tecnología.
-          </p>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="#proyectos" class="btn btn-brand btn-lg">
-              Explorar proyectos <i class="bi bi-arrow-right-short ms-1"></i>
-            </a>
-            <a href="#sobre-mi" class="btn btn-outline-dark btn-lg">
-              Conocer más
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="https://picsum.photos/500/350?random=5" class="rounded-4 shadow-soft img-fluid" alt="Proyectos demo">
+<header id="inicio" class="hero text-center text-lg-start">
+  <div class="container py-4">
+    <div class="row align-items-center g-4 py-4">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">¡Hola! Soy <span class="text-brand">Jose Sierra</span>
+        </h1>
+        <p class="lead text-secondary mb-3">
+          Ingeniero de software, desarrollador web y ministro de alabanza.
+        </p>
+        <p class="text-secondary mb-3">
+          En este espacio comparto mis pasiones: la tecnología, la innovación y el servicio. 
+          Aquí encontrarás proyectos de desarrollo web, sistemas de gestión y aplicaciones 
+          creadas para mejorar procesos y ofrecer soluciones prácticas.
+        </p>
+        <p class="text-secondary mb-4">
+          Más allá del código, también vivo mi fe y la música como cristiano y ministro de alabanza, 
+          inspirando cada paso de mi vida. Te invito a explorar mis proyectos, conocer más sobre mi experiencia 
+          y, si lo deseas, ponerte en contacto para nuevas oportunidades.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#proyectos" class="btn btn-brand btn-lg">
+            Explorar proyectos <i class="bi bi-arrow-right-short ms-1"></i>
+          </a>
+          <a href="#sobre-mi" class="btn btn-outline-dark btn-lg">
+            Conocer más
+          </a>
         </div>
       </div>
+<!--Trancisiones-->
+      <div class="col-lg-6 text-center">
+        <img src="https://picsum.photos/500/350?random=5" class="rounded-4 shadow-soft img-fluid" alt="Proyectos demo">
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Proyectos -->
-  <section id="proyectos" class="py-5">
+  <section id="proyectos" class="py-3 hero text-center text-lg-start">
     <div class="container">
-      <div class="text-center mb-5">
+      <div class="text-center mb-3">
         <h2 class="fw-bold">Mis Proyectos</h2>
         <p class="text-secondary">Algunos trabajos y desarrollos destacados.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
         <div class="col-md-4">
-          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
-            <i class="bi bi-laptop feature-icon fs-1 text-brand"></i>
-            <h5 class="fw-semibold mt-3">Sistema de gestión</h5>
-            <p class="text-secondary">Plataforma web para administrar información con reportes dinámicos.</p>
+          <div class="card border-0 shadow-soft h-100">
+            <div class="text-center p-3">
+              <img src="static/IMG/desarrollador-web.gif" 
+                   class="img-fluid rounded-3" 
+                   alt="Proyecto 3"
+                   style="max-height: 200px; object-fit: cover;">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">Portal Web</h5>
+              <p class="card-text">Plataforma central para mostrar todos mis proyectos.</p>
+              <a href="#" class="btn btn-brand">Ver más</a>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
-            <i class="bi bi-phone feature-icon fs-1 text-brand"></i>
-            <h5 class="fw-semibold mt-3">App móvil</h5>
-            <p class="text-secondary">Aplicación Android en Kotlin con QR y seguimiento en tiempo real.</p>
+          <div class="card border-0 shadow-soft h-100">
+            <div class="text-center p-3">
+              <img src="static/IMG/viaje.gif" 
+                   class="img-fluid rounded-3" 
+                   alt="Proyecto 2"
+                   style="max-height: 200px; object-fit: cover;">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">App de Trazabilidad</h5>
+              <p class="card-text">Software Para rastrear Guias de los diferentes paquetes Generadas</p>
+              <a href="https://entregas-am.net/" class="btn btn-brand" target="_blank">Ver más</a>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
-            <i class="bi bi-terminal feature-icon fs-1 text-brand"></i>
-            <h5 class="fw-semibold mt-3">Proyectos de seguridad</h5>
-            <p class="text-secondary">Pentesting y herramientas de análisis en ciberseguridad.</p>
+          <div class="card border-0 shadow-soft h-100">
+            <div class="text-center p-3">
+              <img src="static/IMG/seguridad-de-la-base-de-datos.gif" 
+                   class="img-fluid rounded-3" 
+                   alt="Proyecto 1"
+                   style="max-height: 200px; object-fit: cover;">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">Sistema de Gestión</h5>
+              <p class="card-text">Software de control de empleados, asistencia y reportes.</p>
+              <a href="#" class="btn btn-brand">Ver más</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-3">Sobre mí</h2>
-      <p class="text-secondary mx-auto" style="max-width:600px">
-        Soy desarrollador apasionado por la tecnología, la innovación y la ciberseguridad.
-        Me gusta aprender, experimentar y construir soluciones que aporten valor.
-      </p>
+  <!-- Experiencia -->
+  <section id="experiencia" class="py-5 bg-light hero text-center text-lg-start">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Experiencias</h2>
+        <p class="text-secondary">Durante mi trayectoria he desarrollado diversos proyectos que integran tecnología, innovación y servicio.</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Desarrollo Web -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-laptop fs-2 text-brand me-3"></i>
+                <h3 class="h5 mb-0">Desarrollo de software y aplicaciones web</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">✓ Sistemas de gestión de empleados con códigos de barras</li>
+                <li class="mb-2">✓ Control de asistencias y generación de reportes PDF/Excel</li>
+                <li class="mb-2">✓ Plataformas en Laravel/PHP con XAMPP y MySQL</li>
+                <li class="mb-2">✓ Aplicaciones Flask/Python con bases de datos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aplicaciones Móviles -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-phone fs-2 text-brand me-3"></i>
+                <h3 class="h5 mb-0">Aplicaciones móviles</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">✓ Desarrollo Android con Kotlin durante epoca de estudio</li>
+                <li class="mb-2">✓ Integración Google Maps API y Firebase en un cortao tiempo</li>
+                <li class="mb-2">✓ Rastreo en tiempo real</li>
+                <li class="mb-2">✓ Interfaces modernas con  php y laravel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diseño de Interfaces -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-palette fs-2 text-brand me-3"></i>
+                <h3 class="h5 mb-0">Diseño de interfaces</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">✓ Interfaces HTML/CSS modernas</li>
+                <li class="mb-2">✓ Diseños responsivos y atractivos</li>
+                <li class="mb-2">✓ Efectos visuales interactivos</li>
+                <li class="mb-2">✓ Enfoque en usabilidad y experiencia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ministerio y Música -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-music-note-beamed fs-2 text-brand me-3"></i>
+                <h3 class="h5 mb-0">Ministerio y música</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">✓ Ministro de alabanza y músico</li>
+                <li class="mb-2">✓ Liderazgo en tiempos de adoración</li>
+                <li class="mb-2">✓ Formación musical gospel</li>
+                <li class="mb-2">✓ Integración fe y propósito de vida</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="py-5">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-3">Contacto</h2>
-      <p class="text-secondary">¿Quieres colaborar o ver más de mis proyectos?</p>
-      <a href="mailto:tuemail@ejemplo.com" class="btn btn-brand btn-lg">
-        Escríbeme <i class="bi bi-envelope ms-1"></i>
-      </a>
+  <section id="contacto" class="py-5 bg-light hero text-center text-lg-start">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-3">¿Listo para colaborar?</h2>
+          <p class="text-secondary mb-5">Estoy disponible para nuevos proyectos, colaboraciones y oportunidades. ¡Conversemos sobre cómo podemos trabajar juntos!</p>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center g-4">
+        <!-- Email -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-soft text-center">
+            <div class="card-body p-4">
+              <div class="rounded-circle bg-brand-soft p-3 d-inline-flex mb-3">
+                <i class="bi bi-envelope-fill fs-4 text-brand"></i>
+              </div>
+              <h3 class="h5 mb-3">Correo Electrónico</h3>
+              <p class="text-secondary small mb-3">Escríbeme para consultas o propuestas de proyectos</p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=todoobraparabien1998@gmail.com" 
+                class="btn btn-brand" target="_blank">
+                Enviar email <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-soft text-center">
+            <div class="card-body p-4">
+              <div class="rounded-circle bg-brand-soft p-3 d-inline-flex mb-3">
+                <i class="bi bi-linkedin fs-4 text-brand"></i>
+              </div>
+              <h3 class="h5 mb-3">LinkedIn</h3>
+              <p class="text-secondary small mb-3">Conéctemos profesionalmente y expandamos nuestra red</p>
+              <a href="https://www.linkedin.com/in/jose-sierra-739281271" 
+                class="btn btn-brand" target="_blank">
+                Conectar <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-soft text-center">
+            <div class="card-body p-4">
+              <div class="rounded-circle bg-brand-soft p-3 d-inline-flex mb-3">
+                <i class="bi bi-whatsapp fs-4 text-brand"></i>
+              </div>
+              <h3 class="h5 mb-3">WhatsApp</h3>
+              <p class="text-secondary small mb-3">Para una comunicación más directa y rápida</p>
+              <a href="https://wa.me/+573023912570" 
+                class="btn btn-brand" target="_blank">
+                Chatear <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8 text-center">
+          <div class="card border-0 shadow-soft">
+            <h4 class="h5 mb-3">¿Horario de contacto preferido?</h4>
+            <p class="text-secondary mb-3">
+              Disponible de lunes a viernes, 9:00 AM - 6:00 PM (GMT-5)<br>
+              Respuesta garantizada en menos de 24 horas
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -147,12 +317,12 @@
   <footer class="py-4 border-top bg-white">
     <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
       <p class="mb-2 mb-md-0 text-secondary small">
-        © <span id="y"></span> Shon Gottes. Portfolio.
+        © <span id="y"></span> Jose Sierra. Todos los derechos reservados.
       </p>
       <div class="d-flex gap-3 small">
-        <a class="link-brand" href="#">GitHub</a>
-        <a class="link-brand" href="#">LinkedIn</a>
-        <a class="link-brand" href="#">CV</a>
+        <a class="link-brand" href="https://github.com/jsierra17">GitHub</a>
+        <a class="link-brand" href="https://youtube.com/@shongottes">Youtube</a>
+        <a class="link-brand" href="https://www.facebook.com/profile.php?id=100023714392227">Facebook</a>
       </div>
     </div>
   </footer>
