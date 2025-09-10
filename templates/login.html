@@ -127,23 +127,64 @@
   <!-- 📦 Contenedor del login -->
   <div class="login-container">
     <h2 class="fw-bold mb-4 text-brand">Iniciar Sesión</h2>
-    <form action="/login" method="POST">
+    
+    <!-- Mostrar mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+      {{ form.hidden_tag() }}  <!-- Token CSRF -->
+      
       <!-- Campo de correo -->
       <div class="mb-3 text-start">
-        <label for="correo" class="form-label">Correo:</label>
-        <input type="email" id="correo" name="correo" class="form-control" required>
+        {{ form.correo.label(class="form-label") }}
+        {{ form.correo(class="form-control") }}
+        {% if form.correo.errors %}
+          <div class="text-danger small mt-1">
+            {% for error in form.correo.errors %}
+              <div>{{ error }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
+      
       <!-- Campo de contraseña -->
       <div class="mb-3 text-start">
-        <label for="contraseña" class="form-label">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+        {{ form.contraseña.label(class="form-label") }}
+        {{ form.contraseña(class="form-control") }}
+        {% if form.contraseña.errors %}
+          <div class="text-danger small mt-1">
+            {% for error in form.contraseña.errors %}
+              <div>{{ error }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
+      
       <!-- Botón de ingresar -->
-      <button type="submit" class="btn btn-brand w-100 py-2">Ingresar</button> 
+      {{ form.submit(class="btn btn-brand w-100 py-2") }}
+      
       <!-- Enlaces secundarios -->
-      <h6 class="mt-3 text-muted">¿No tienes cuenta?</h6>
-      <a href="{{ url_for('registro') }}" class="btn btn-outline-success w-100 py-2">Registrarse</a>
-      <a href="{{ url_for('index') }}" class="btn btn-secondary w-100 mt-2 py-2">Volver a Inicio</a>
+      <div class="mt-3">
+        <a href="{{ url_for('forgot_password') }}" class="btn btn-link w-100 py-2">
+          <i class="bi bi-question-circle me-2"></i>¿Olvidaste tu contraseña?
+        </a>
+        <h6 class="mt-3 text-muted">¿No tienes cuenta?</h6>
+        <a href="{{ url_for('registro') }}" class="btn btn-outline-success w-100 py-2">
+          <i class="bi bi-person-plus me-2"></i>Registrarse
+        </a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary w-100 mt-2 py-2">
+          <i class="bi bi-house me-2"></i>Volver a Inicio
+        </a>
+      </div>
     </form>
   </div>
 </body>

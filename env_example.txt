@@ -1,0 +1,26 @@
+# Archivo de ejemplo para variables de entorno
+# Copia este archivo como .env y configura tus valores
+
+# Configuración de la aplicación
+FLASK_ENV=development
+SECRET_KEY=tu_clave_secreta_muy_segura_aqui
+
+# Configuración de base de datos
+DATABASE_URL=sqlite:///database.db
+
+# Configuración de email (para recuperación de contraseña)
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=true
+MAIL_USERNAME=tu_email@gmail.com
+MAIL_PASSWORD=tu_contraseña_de_aplicacion
+MAIL_DEFAULT_SENDER=tu_email@gmail.com
+
+# URL base de la aplicación (para enlaces en emails)
+BASE_URL=http://localhost:5000
+
+# Configuración para producción
+# FLASK_ENV=production
+# SECRET_KEY=clave_super_secreta_para_produccion
+# DATABASE_URL=postgresql://usuario:contraseña@host:puerto/database
+# BASE_URL=https://tu-dominio.com
