@@ -4,10 +4,3 @@ Jinja2==3.1.2
 click==8.1.7
 itsdangerous==2.1.2
 MarkupSafe==2.1.3
-# Dependencias para seguridad y funcionalidad mejorada
-bcrypt==4.0.1                    # Para hash seguro de contraseñas
-python-dotenv==1.0.0            # Para manejo de variables de entorno
-email-validator==2.0.0          # Para validación de emails
-flask-mail==0.9.1               # Para envío de emails
-flask-wtf==1.1.1                # Para formularios seguros con CSRF
-wtforms==3.0.1                  # Para validación de formularios

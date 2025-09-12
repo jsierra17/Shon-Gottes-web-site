@@ -101,13 +101,6 @@
   <div class="login-container">
     <h2 class="fw-bold mb-4 text-brand">Iniciar Sesión</h2>
 
-    {% if mensaje_error %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ mensaje_error }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      </div>
-    {% endif %}
-
     <form method="POST">
       <div class="mb-3 text-start">
         <label for="correo" class="form-label">Correo electrónico</label>
