@@ -38,14 +38,18 @@ def registro():
 
         conexion = sqlite3.connect("database.db")
         cursor = conexion.cursor()
-        cursor.execute("INSERT INTO usuarios (nombre, correo, contraseña) VALUES (?, ?, ?)", 
-                    (nombre, correo, contraseña))
-        conexion.commit()
+        try:
+            cursor.execute("INSERT INTO usuarios (nombre, correo, contraseña) VALUES (?, ?, ?)", 
+                        (nombre, correo, contraseña))
+            conexion.commit()
+        except sqlite3.IntegrityError:
+            conexion.close()
+            return render_template('registro.html', mensaje_error="El correo ya está registrado")
+        
         conexion.close()
+        return redirect('/login')
 
-        return redirect('/login')  # Redirige al login después del registro
-    
-    return render_template('registro.html')  # Si es GET, muestra el formulario
+    return render_template('registro.html')
 
 # Ruta para login
 @app.route('/login', methods=['GET', 'POST'])
